@@ -2,12 +2,18 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post'
 
-let MessagesData = [
+let posts = [
 
     {id: 1, message: 'Hi, how are you?', likesCount: 12},
     {id: 2, message: 'It`s my first post', likesCount: 10},
+    {id: 1, message: 'Bla bla', likesCount: 20},
+    {id: 2, message: 'Da da', likesCount: 30},
+
 
 ];
+
+let postsElements =
+    posts.map(p => <Post message={p.message} likesCount={p.likesCount} />);
 
 
 const MyPosts = () => {
@@ -23,10 +29,7 @@ const MyPosts = () => {
                 </div>
             </div>
             <div className={s.posts}>
-
-                <Post message={MessagesData[0].message} likesCount={MessagesData[0].likesCount}/>
-                <Post message={MessagesData[1].message} likesCount={MessagesData[1].likesCount}/>
-
+                { postsElements }
             </div>
         </div>
     );
