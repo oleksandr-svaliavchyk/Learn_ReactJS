@@ -1,10 +1,14 @@
 .dialogs {
     display: grid;
-    grid-template-columns: 1fr 10fr;
+    grid-template-columns: 1fr 1fr 18fr;
+}
+
+.item {
+    margin-bottom: 40px;
 }
 
 .dialogsItems {
-    padding: 10px;
+    padding-top: 10px;
     color: white;
 }
 
@@ -17,5 +21,9 @@
 }
 
 messages .message {
+
+}
+
+.avatars {
 
 }

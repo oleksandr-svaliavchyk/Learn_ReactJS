@@ -9,26 +9,34 @@ import Route from "react-router-dom/es/Route";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import {addMessage, addPost, updateNewMessageText} from "./redux/state";
 
 const App = (props) => {
 	return (
-		<BrowserRouter>
+
 			<div className='app-wrapper'>
 				<Header />
 				<Navbar state={props.state.sidebar}/>
 				<div className="app-wrapper-content">
 					<Route path='/profile'
 						   render={ () => <Profile
-							   state={props.state.profilePage}/>} />
+							   profilePage={props.state.profilePage}
+							   addPost={addPost}
+							   updateNewPostText={props.updateNewPostText}
+						   />} />
 					<Route path='/dialogs'
 						   render={ () => <Dialogs
-							   state={props.state.dialogsPage}/>} />
+							   state={props.state.dialogsPage}
+							   updateNewMessageText={props.updateNewMessageText}
+							   addMessage={props.addMessage}
+							   newMessageText={props.state.dialogsPage.newMessagesText}
+						   />} />
 					<Route path='/news' component={News} />
 					<Route path='/music' component={Music} />
 					<Route path='/settings' component={Settings} />
 				</div>
 			</div>
-		</BrowserRouter>);
+	);
 }
 
 export default App;
