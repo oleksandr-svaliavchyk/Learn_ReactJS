@@ -3,6 +3,7 @@ import s from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import Avatar from "./Avatar/Avatar";
+import {addMessActionCreator, updateNewMessageText} from "../../redux/dialogs-reducer";
 
 
 const Dialogs = (props) => {
@@ -14,12 +15,12 @@ const Dialogs = (props) => {
     let newTextElement = React.createRef();
 
     let addMess = () => {
-        props.dispatch({type: 'ADD-MESSAGE'});
+        props.dispatch(addMessActionCreator());
     }
 
     let onMessChange = () => {
         let text = newTextElement.current.value;
-        props.dispatch({type: 'UPDATE-NEW-MESSAGE-TEXT', newText:text });
+        props.dispatch(updateNewMessageText(text));
     }
     return (
         <div className={s.dialogs}>
